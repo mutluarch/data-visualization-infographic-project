@@ -1,0 +1,135 @@
+{
+  "project": {
+    "title": "Hagia Sophia — Spatial Memory",
+    "subtitle": "1494 years of historical events (532–2026 CE)",
+    "course": "MBL549E — Special Topics in Architectural Design Computing",
+    "student": "Muhammed Furkan Mutlu",
+    "institution": "Istanbul Technical University",
+    "submission_date": "2026-06-10",
+    "version": "v17"
+  },
+  "research_question": "How have historical events shaped the spatial memory and emotional identity of Hagia Sophia across 1494 years (532–2026 CE)?",
+  "dataset": {
+    "source": "Manually curated from academic and historical sources",
+    "total_events": 337,
+    "time_range": {
+      "start": 532,
+      "end": 2025,
+      "span_years": 1493
+    },
+    "columns": 15,
+    "file": "ayasofya_olaylar_v3_sinif.csv"
+  },
+  "statistics": {
+    "emotional_score": {
+      "mean": -0.181,
+      "std": 3.701,
+      "min": -5,
+      "max": 5,
+      "median": 0
+    },
+    "by_period": {
+      "Bizans": 131,
+      "Latin_Isgali": 7,
+      "Osmanli": 125,
+      "Cumhuriyet": 74
+    },
+    "by_spatial_class": {
+      "Tum Yapi": 128,
+      "Ic Mekan": 90,
+      "Kubbe & Apsis": 13,
+      "Cevre": 106
+    },
+    "by_impact_factor": {
+      "Yapisal": 51,
+      "Insan": 29,
+      "Dini": 77,
+      "Diger": 116,
+      "Saglik": 4,
+      "Doga": 42,
+      "Kulturel": 18
+    },
+    "by_century": {
+      "6c": 14,
+      "7c": 11,
+      "8c": 5,
+      "9c": 15,
+      "10c": 8,
+      "11c": 7,
+      "12c": 14,
+      "13c": 23,
+      "14c": 18,
+      "15c": 56,
+      "16c": 22,
+      "17c": 14,
+      "18c": 24,
+      "19c": 25,
+      "20c": 41,
+      "21c": 40
+    }
+  },
+  "data_quality": {
+    "missing_values": 0,
+    "duplicate_events": 2,
+    "duplicate_detail": "Same earthquake names across different years (verified distinct events)",
+    "outliers": 0,
+    "corrections_applied": [
+      "EVT306: donem Bizans→Osmanli (1869 UNESCO, corrected period)",
+      "EVT160: mekan_sinif Cevre→Tum Yapi (minarets are part of whole building)",
+      "EVT171: mekan_sinif Cevre→Tum Yapi (minarets, ezan)"
+    ]
+  },
+  "visualization": {
+    "type": "Interactive 3D point cloud infographic",
+    "technology": "HTML5 Canvas 2D, vanilla JavaScript",
+    "model": "AyasofyaLayered2.obj (4 layers: Tum_Yapi, Dome, Ic_Mekan, Cevre)",
+    "axes": {
+      "X": "Spatial — East-West position in building plan",
+      "Y": "Spatial — North-South position in building plan",
+      "Z": "Temporal — Chronological (532 CE bottom → 2026 CE top)"
+    },
+    "encoding": {
+      "color": "Emotional intensity (green=positive, red=negative)",
+      "shape": "Impact factor (Human, Nature, Structural, Religious, Cultural, Health, Other)",
+      "size": "Emotional intensity level",
+      "network_color": "Historical period (Byzantine=blue, Latin=red, Ottoman=green, Republic=orange)"
+    },
+    "interactions": [
+      "Mouse orbit rotation (left drag)",
+      "Pan (right drag)",
+      "Zoom (scroll)",
+      "Click event dot → inspect details",
+      "Filter by Period, Spatial Type, Emotion, Impact Factor, Century",
+      "Filter Analysis panel with sentiment by century chart",
+      "Preset views: TOP, FRONT, BACK, LEFT, RIGHT, UNDER",
+      "Admin panel (P key): model scale, layer scale, century band height"
+    ]
+  },
+  "model": {
+    "file": "AyasofyaLayered2.obj",
+    "vertices": 9795,
+    "edges": 28669,
+    "layers": {
+      "Tum_Yapi": {
+        "region": 2,
+        "color": "teal",
+        "vertices": 6526
+      },
+      "Dome": {
+        "region": 0,
+        "color": "gold",
+        "vertices": 727
+      },
+      "Ic_Mekan": {
+        "region": 1,
+        "color": "blue",
+        "vertices": 2251
+      },
+      "Cevre": {
+        "region": 3,
+        "color": "green",
+        "vertices": 291
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "title": "Hagia Sophia Spatial Memory — Data Dictionary",
+  "version": "v3",
+  "last_updated": "2026-06-10",
+  "total_records": 337,
+  "fields": {
+    "olay_id": {
+      "type": "string",
+      "description": "Unique event identifier (EVT001–EVT337)",
+      "example": "EVT001",
+      "nullable": false
+    },
+    "tarih": {
+      "type": "string",
+      "description": "Historical date of the event (YYYY or YYYY-MM-DD)",
+      "example": "532-02-23",
+      "nullable": false
+    },
+    "yil": {
+      "type": "integer",
+      "description": "Year of event as integer (for sorting)",
+      "range": "532–2025",
+      "nullable": false
+    },
+    "yy": {
+      "type": "integer",
+      "description": "Century of event (computed: (yil-1)//100+1)",
+      "range": "6–21",
+      "nullable": false
+    },
+    "donem": {
+      "type": "categorical",
+      "description": "Historical period of Hagia Sophia",
+      "values": {
+        "Bizans": "Byzantine era (532–1453)",
+        "Latin_Isgali": "Latin Occupation (1204–1261)",
+        "Osmanli": "Ottoman era (1453–1923)",
+        "Cumhuriyet": "Republic of Turkey (1923–present)"
+      },
+      "corrections": [
+        "EVT306: Bizans→Osmanli (1869, UNESCO)"
+      ],
+      "nullable": false
+    },
+    "olay_tipi": {
+      "type": "string",
+      "description": "Raw event type code from dataset",
+      "example": "Insa_Baslangic",
+      "nullable": false
+    },
+    "etki": {
+      "type": "categorical",
+      "description": "Computed impact factor category",
+      "values": {
+        "Dini": "Religious/Ritual events (82)",
+        "Insan": "Human/Political events (69)",
+        "Yapisal": "Structural/Construction events (45)",
+        "Doga": "Natural events — earthquake, fire, flood (43)",
+        "Kulturel": "Cultural/Artistic events (25)",
+        "Saglik": "Health/Epidemic events (5)",
+        "Diger": "Other/Unclassified events (68)"
+      },
+      "nullable": false
+    },
+    "olay_adi": {
+      "type": "string",
+      "description": "Full name/title of the event",
+      "nullable": false
+    },
+    "mekan_bolumu": {
+      "type": "string",
+      "description": "Specific spatial location within or around Hagia Sophia (75 unique values)",
+      "example": "Naos",
+      "nullable": false
+    },
+    "mekan_sinif": {
+      "type": "categorical",
+      "description": "Spatial classification (layer) of the event",
+      "values": {
+        "Kubbe & Apsis": "Dome and apse area (13 events)",
+        "Ic Mekan": "Interior nave space (90 events)",
+        "Tum Yapi": "Whole building (126 events)",
+        "Cevre": "Urban surroundings (108 events)"
+      },
+      "corrections": [
+        "EVT160: Cevre→Tum Yapi (minarets, WWII)",
+        "EVT171: Cevre→Tum Yapi (minarets, ezan)"
+      ],
+      "nullable": false
+    },
+    "kisaca": {
+      "type": "string",
+      "description": "Short summary/description of the event",
+      "nullable": false
+    },
+    "duygu_yogunluk": {
+      "type": "categorical",
+      "description": "Emotional intensity label",
+      "values": [
+        "Cok_Yuksek_Pozitif",
+        "Yuksek_Pozitif",
+        "Orta_Pozitif",
+        "Karisik",
+        "Yuksek_Karisik",
+        "Cok_Yuksek_Karisik",
+        "Orta_Negatif",
+        "Yuksek_Negatif",
+        "Cok_Yuksek_Negatif"
+      ],
+      "nullable": false
+    },
+    "duygu_skor": {
+      "type": "integer",
+      "description": "Numerical emotional score (-5 to +5). Positive=constructive impact, Negative=destructive",
+      "range": "-5 to +5",
+      "mean": -0.18,
+      "std": 3.7,
+      "nullable": false
+    },
+    "referans": {
+      "type": "string",
+      "description": "Academic/historical reference source",
+      "nullable": true
+    }
+  },
+  "coordinate_system": {
+    "X_axis": "Spatial position East-West in Hagia Sophia plan (model coordinates)",
+    "Y_axis": "Spatial position North-South in Hagia Sophia plan (model coordinates)",
+    "Z_axis": "Chronological time axis (532 CE at base, 2026 CE at top)",
+    "Z_unit": "80 canvas units per century, events distributed within century band",
+    "note": "X & Y derived from mekan_bolumu mapped to AyasofyaLayered2.obj model coordinates"
+  }
+}
