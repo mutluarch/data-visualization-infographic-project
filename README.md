@@ -294,7 +294,7 @@ repository/
 
 The infographic is a **self-contained single HTML file** — no server, no dependencies, no installation required.
 
-1. Download `M_Furkan_Mutlu_Infographics_v17.html`
+1. Download `M_Furkan_Mutlu_Infographics.html`
 2. Open in any modern browser (Chrome, Firefox, Edge, Safari)
 3. Use mouse to navigate:
    - **Left drag** → Rotate
