@@ -285,8 +285,7 @@ repository/
 ├── dataDictionary.json                ← Field definitions, value descriptions, corrections
 ├── metadata.json                      ← Project metadata, statistics, visualization specs
 ├── requirements.txt                   ← Python libraries used
-├── ayasofya_olaylar_v3_sinif.csv      ← Source dataset (v3, corrected)
-└── M_Furkan_Mutlu_Infographics_v17.html ← Interactive 3D infographic (final submission)
+└── M_Furkan_Mutlu_Infographics.html ← Interactive 3D infographic (final submission)
 ```
 
 ---
