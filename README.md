@@ -15,7 +15,7 @@ This project maps 337 historical events onto a 3D model of Hagia Sophia using a 
 ## Dataset Description
 
 | Field | Value |
-|---|---|
+|---|---| 
 | **Source** | Manually curated from academic and historical references |
 | **File** | `ayasofya_olaylar_v3_sinif.csv` |
 | **Total Records** | 337 events |
